@@ -76,29 +76,27 @@
 
 #### 零空间
 
->$$
->\begin{bmatrix} 
->a_{11} & a_{12} & \dots & a_{1n} \\ 
->a_{21} & a_{22} & \dots & a_{2n} \\  
->\vdots & & & \vdots \\
->a_{n1} & a_{n2} & \dots & a_{nn} \\ 
->\end{bmatrix} 
->\begin{bmatrix} 
->x1 \\
->x2 \\
->\vdots \\
->xn
->\end{bmatrix} 
->= 
->\begin{bmatrix} 
->0 \\
->0 \\
->\vdots \\
->0
->\end{bmatrix}
->$$
->
->
+$$
+\begin{bmatrix} 
+a_{11} & a_{12} & \dots & a_{1n} \\ 
+a_{21} & a_{22} & \dots & a_{2n} \\  
+\vdots & & & \vdots \\
+a_{n1} & a_{n2} & \dots & a_{nn} \\ 
+\end{bmatrix} 
+\begin{bmatrix} 
+x1 \\
+x2 \\
+\vdots \\
+xn
+\end{bmatrix} 
+= 
+\begin{bmatrix} 
+0 \\
+0 \\
+\vdots \\
+0
+\end{bmatrix}
+$$
 
 #### 秩
 
