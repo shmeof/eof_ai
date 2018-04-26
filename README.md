@@ -12,6 +12,8 @@
 
 #### 基
 
+基：一般看矩阵的列。
+
 #### 张成的空间
 
 > 基张成的空间
@@ -33,6 +35,8 @@
 > 行列式 = 零：矩阵的列必然线性相关（降维了）
 >
 > 行列式 < 负：未翻转
+
+> 行列式与所选坐标系无关。	
 
 #### 逆矩阵：行列式不为0，则矩阵可逆（线性变换可逆）
 
@@ -76,32 +80,29 @@
 
 #### 零空间
 
->$\begin{bmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n} \\  \vdots & & & \vdots \\a_{n1} & a_{n2} & \dots & a_{nn} \\ \end{bmatrix} \begin{bmatrix} x1 \\x2 \\\vdots \\xn\end{bmatrix} = \begin{bmatrix} 0 \\0 \\\vdots \\0\end{bmatrix}$
-
-$\begin{bmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} & \dots & a_{2n} \\  \vdots & & & \vdots \\a_{n1} & a_{n2} & \dots & a_{nn} \\ \end{bmatrix} \begin{bmatrix} x1 \\x2 \\\vdots \\xn\end{bmatrix} = \begin{bmatrix} 0 \\0 \\\vdots \\0\end{bmatrix}$
-
-
-$$
-\begin{bmatrix} 
-a_{11} & a_{12} & \dots & a_{1n} \\ 
-a_{21} & a_{22} & \dots & a_{2n} \\  
-\vdots & & & \vdots \\
-a_{n1} & a_{n2} & \dots & a_{nn} \\ 
-\end{bmatrix} 
-\begin{bmatrix} 
-x1 \\
-x2 \\
-\vdots \\
-xn
-\end{bmatrix} 
-= 
-\begin{bmatrix} 
-0 \\
-0 \\
-\vdots \\
-0
-\end{bmatrix}
-$$
+>关注概念：特征向量/特征值
+>$$
+>\begin{bmatrix} 
+>a_{11} & a_{12} & \dots & a_{1n} \\ 
+>a_{21} & a_{22} & \dots & a_{2n} \\  
+>\vdots & & & \vdots \\
+>a_{n1} & a_{n2} & \dots & a_{nn} \\ 
+>\end{bmatrix} 
+>\begin{bmatrix} 
+>x1 \\
+>x2 \\
+>\vdots \\
+>xn
+>\end{bmatrix} 
+>= 
+>\begin{bmatrix} 
+>0 \\
+>0 \\
+>\vdots \\
+>0
+>\end{bmatrix}
+>$$
+>
 
 #### 秩
 
@@ -150,6 +151,8 @@ $$
 > 特征值：线性变换后特征向量的缩放值。
 >
 > 特征向量可能不存在。
+>
+> 特征向量与所选坐标系无关。
 
 >$A \vec v = \lambda \vec v$
 >
@@ -159,7 +162,7 @@ $$
 
 > 求$\lambda$，思路：
 >
-> $A \vec v = \lambda \vec v$
+> $A \vec v = \lambda \vec v$（$\vec v \ne \vec 0$ ）
 >
 > $A \vec v = \lambda I \vec v$
 >
@@ -171,7 +174,61 @@ $$
 
 >已知$\lambda$，求$\vec x$，思路：
 >
+>解线性方程组（关注概念：零空间）
+>$$
+>\begin{bmatrix} 
+>a_{11}-\lambda & a_{12} & \dots & a_{1n} \\ 
+>a_{21} & a_{22}-\lambda & \dots & a_{2n} \\  
+>\vdots & & & \vdots \\
+>a_{n1} & a_{n2} & \dots & a_{nn}-\lambda \\ 
+>\end{bmatrix} 
+>\begin{bmatrix} 
+>x1 \\
+>x2 \\
+>\vdots \\
+>xn
+>\end{bmatrix} 
+>= 
+>\begin{bmatrix} 
+>0 \\
+>0 \\
+>\vdots \\
+>0
+>\end{bmatrix}
+>$$
 >
+
+#### 对角矩阵
+
+> 对角矩阵：所有基向量都是特征向量，对角元是它们对应的特征值。
+>
+> 对角矩阵在很多计算方面都更容易处理。
+
+#### 特征基
+
+> 特征基：若矩阵A有多个特征向量，且其中存在可以张成全空间的一组向量集合，则可选取这样的集合作为空间的基。（这组特征基会使得矩阵运算变简单）
+>
+> 诸如计算$A^{n}$等的复杂运算，可先变换到特征基，在那个空间计算后，再转换回标准坐标系。
+
+#### 抽象向量空间
+
+> 函数
+
+> 线性的严格定义：可加性、成比例（一阶齐次）
+
+#### 基函数
+
+> 基是一个函数的情况。
+
+> 函数求导 与 矩阵乘法 的关系（举例：多项式）
+
+> 线性变换 - 线性算子
+>
+> 点积 - 内积
+>
+> 特征向量 - 特征函数
+
+> 向量加法和数乘的8条规则（公理）
 
 
 
