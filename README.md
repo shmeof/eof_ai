@@ -274,7 +274,7 @@
 
 #### 链式法则 ／ 乘法法则
 
->  p(a, b, c) = p(a | b, c) p(b | c) p(c)
+>  p(a,b,c) = p(a|b, c) p(b|c) p(c)
 
 #### 联合概率
 
@@ -388,7 +388,7 @@
 
 #### 最大后验估计
 
-
+> 
 
 #### 独立同分布
 
@@ -440,13 +440,43 @@ $\begin{aligned}\dot{g}(z) = g(z)(1-g(z))\\\end{aligned}$
 
 $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 梯度上升：\begin{aligned}\frac  {\partial}{\partial \theta_j} l(\theta) &=(y\times \frac  1 {g(\theta ^T x)}  - (1y)\times\frac  1 {1- g(\theta ^T x)}   )\frac  {\partial}{\partial \theta_j}g(\theta ^Tx) \\&= (y\times \frac  1 {g(\theta ^T x)}  - (1y)\times \frac  1 {1- g(\theta ^T x)}   )  g(\theta^Tx)(1-g(\theta^Tx)) \frac  {\partial}{\partial \theta_j}\theta ^Tx \\&= (y(1-g(\theta^Tx) ) -(1-y) g(\theta^Tx)) x_j\\&= (y-h_\theta(x))x_j\end{aligned}\end{cases}$$\Rightarrow$ $\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
 
-#### 求$\vec \theta$，快，牛顿方法（一维）/牛顿-拉普森法（多维）
+#### 求$\vec \theta$，快，牛顿法（一维）/牛顿-拉普森法（多维）
 
 $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 牛顿-拉普森法：\theta := \theta - H^{-1}\nabla_\theta l(\theta)，H_{ij}= \frac {\partial^2 l(\theta)}{\partial \theta_i \partial \theta_j}\end{cases}$$\Rightarrow$求得最大$l(\theta)$及其对应的$\theta$(Fisher评分）
 
 ### 广义线性模型
 
+#### 指数族
 
+指数族：可用以下描述的分布。
+
+$ p(y;\eta) =b(y)exp(\eta^TT(y)-a(\eta))$
+
+#### 广义线性模型特例：普通最小二乘法
+
+
+
+#### 广义线性模型特例：逻辑回归
+
+
+
+#### 广义线性模型特例：Softmax回归
+
+
+
+#### 广义线性模型特例：多项式分布
+
+
+
+#### 广义线性模型特例：泊松分布
+
+
+
+#### 广义线性模型特例：$\beta$和狄利克雷分布
+
+
+
+#### 广义线性模型特例：$\gamma$和指数分布
 
 
 
