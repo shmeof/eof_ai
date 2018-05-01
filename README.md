@@ -106,13 +106,17 @@
 
 #### 秩
 
-> 满秩
+> 满秩：
 >
 > 行满秩：矩阵的行向量线性无关
 >
 > 列满秩：矩阵的列向量线性无关
 >
 > 矩阵维度：矩阵的行数
+>
+> 奇异矩阵：矩阵不满秩
+>
+> 非奇异矩阵：矩阵满秩
 
 #### 非方阵：行数 $\ne$ 列数
 
@@ -336,6 +340,10 @@
 >
 > 泊松分布 => 指数分布
 
+#### 概率分布-连续（拉普拉斯分布）
+
+>
+
 #### 贝叶斯定理
 
 > 贝叶斯定理：一种“根据数据集内容的变化而更新假设概率”的方法。
@@ -378,6 +386,10 @@
 >
 > > 
 
+#### 最大后验估计
+
+
+
 #### 独立同分布
 
 > 独立
@@ -388,11 +400,53 @@
 
 
 
-## 其他基础
+## 机器学习基础
 
-### 高斯分布/正态分布
+[斯坦福大学公开课 ：机器学习课程](http://open.163.com/special/opencourse/machinelearning.html)
 
-> 似然
+[Kivy-CN/Stanford-CS-229-CN: A Chinese Translation of Stanford CS229 notes 斯坦福机器学习CS229课程讲义的中文翻译](https://github.com/Kivy-CN/Stanford-CS-229-CN)
+
+### 机器学习三要素
+
+模型、策略、算法
+
+### 线性回归
+
+#### 求$\vec \theta$，迭代方法（慢）-最小均方算法（LMS）
+
+$\begin{cases}线性函数：h(x)=\vec \theta^T\vec x\\成本函数：J(\theta)= \frac 12 \sum^m_{i=1}(H_\theta(x^{(i)})-y^{(i)})^2\\梯度下降：\theta_j := \theta_j - \alpha \frac \partial {\partial\theta_J}J(\theta)\end{cases}$ $\Rightarrow$ 最小均方算法（LMS）：$\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
+
+$梯度下降\begin{cases}批量梯度下降\\增量梯度下降\end{cases}$
+
+#### 求$\vec \theta$，非迭代方法（快）-法线方程
+
+法线方程：$X^TX\theta=X^T \vec y$
+
+使得$J(\vec \theta)$最小的$\theta=(X^TX)^-1X^T\vec y$
+
+#### 最小二乘法得到的$\theta$和最大似然法得到的$\theta$是一致的
+
+### 逻辑回归
+
+#### 逻辑函数／双弯曲S型函数（sigmoid）
+
+ $h_\theta(x) = g(\theta^T x) = \frac  1{1+e^{-\theta^Tx}}$
+
+sigmoid：$g(z)= \frac 1 {1+e^{-z}}$
+
+$\begin{aligned}\dot{g}(z) = g(z)(1-g(z))\\\end{aligned}$
+
+#### 求$\vec \theta$，慢，梯度上升
+
+$\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 梯度上升：\begin{aligned}\frac  {\partial}{\partial \theta_j} l(\theta) &=(y\times \frac  1 {g(\theta ^T x)}  - (1y)\times\frac  1 {1- g(\theta ^T x)}   )\frac  {\partial}{\partial \theta_j}g(\theta ^Tx) \\&= (y\times \frac  1 {g(\theta ^T x)}  - (1y)\times \frac  1 {1- g(\theta ^T x)}   )  g(\theta^Tx)(1-g(\theta^Tx)) \frac  {\partial}{\partial \theta_j}\theta ^Tx \\&= (y(1-g(\theta^Tx) ) -(1-y) g(\theta^Tx)) x_j\\&= (y-h_\theta(x))x_j\end{aligned}\end{cases}$$\Rightarrow$ $\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
+
+#### 求$\vec \theta$，快，牛顿方法（一维）/牛顿-拉普森法（多维）
+
+$\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 牛顿-拉普森法：\theta := \theta - H^{-1}\nabla_\theta l(\theta)，H_{ij}= \frac {\partial^2 l(\theta)}{\partial \theta_i \partial \theta_j}\end{cases}$$\Rightarrow$求得最大$l(\theta)$及其对应的$\theta$(Fisher评分）
+
+### 广义线性模型
+
+
 
 
 
@@ -503,11 +557,9 @@ logistic回归
 
 
 
+## Tensorflow
 
-
-
-
-# 概念
+### 概念
 
 -   Graph：图，使用图来表示计算任务。
 -   Session：上下文，图在此上下文中启动执行。
@@ -517,13 +569,14 @@ logistic回归
 -   Shape：
 
 
-# CNN、RNN、DNN
+### CNN、RNN、DNN
 
 感知机：
 
 
 
-# 常用方法
+### 常用方法
+
 * tf.Variable() : 变量
 * tf.constant() : 常量
 * tf.placeholder(） : 占位符
@@ -543,7 +596,8 @@ logistic回归
 * sess.run() : 执行图
 * sess.close() : 关闭会话
 
-# MNIST : Hellow World
+### MNIST : Hellow World
+
 * [MNIST机器学习入门](http://www.tensorfly.cn/tfdoc/tutorials/mnist_beginners.html)
 
 * Softmax模型可以用来给不同对象分配概率
