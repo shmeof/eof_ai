@@ -302,7 +302,15 @@
 
 #### 方差
 
+
+
 #### 协方差
+
+> $\vec Z$的协方差：$Cov(\vec Z) = E[(Z-E[Z])(Z-E[Z])^T]=E[ZZ^T]-(E[Z])(E[Z])^T$
+>
+> $\vec Z$：有值向量
+>
+> $E[\vec Z]$：$\vec Z$的期望
 
 #### 相关系数
 
@@ -358,6 +366,8 @@
 >
 > P(A)：标准化常量。
 
+> 从集合角度理解：https://www.zhihu.com/question/51448623
+
 #### 中心极限定理
 
 > 中心极限定理：大量相互独立的随机变量，其均值的分布以正态分布为极限。
@@ -400,6 +410,10 @@
 
 
 
+
+
+
+
 ## 机器学习基础
 
 [斯坦福大学公开课 ：机器学习课程](http://open.163.com/special/opencourse/machinelearning.html)
@@ -426,7 +440,7 @@ $梯度下降\begin{cases}批量梯度下降\\增量梯度下降\end{cases}$
 
 #### 最小二乘法得到的$\theta$和最大似然法得到的$\theta$是一致的
 
-### 逻辑回归
+### 逻辑回归（一种判别分析算法）
 
 #### 逻辑函数／双弯曲S型函数（sigmoid）
 
@@ -440,7 +454,7 @@ $\begin{aligned}\dot{g}(z) = g(z)(1-g(z))\\\end{aligned}$
 
 $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 梯度上升：\begin{aligned}\frac  {\partial}{\partial \theta_j} l(\theta) &=(y\times \frac  1 {g(\theta ^T x)}  - (1y)\times\frac  1 {1- g(\theta ^T x)}   )\frac  {\partial}{\partial \theta_j}g(\theta ^Tx) \\&= (y\times \frac  1 {g(\theta ^T x)}  - (1y)\times \frac  1 {1- g(\theta ^T x)}   )  g(\theta^Tx)(1-g(\theta^Tx)) \frac  {\partial}{\partial \theta_j}\theta ^Tx \\&= (y(1-g(\theta^Tx) ) -(1-y) g(\theta^Tx)) x_j\\&= (y-h_\theta(x))x_j\end{aligned}\end{cases}$$\Rightarrow$ $\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
 
-#### 求$\vec \theta$，快，牛顿法（一维）/牛顿-拉普森法（多维）
+#### 求$\vec \theta$，快，牛顿法（1维）/牛顿-拉普森法（n维）
 
 $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 牛顿-拉普森法：\theta := \theta - H^{-1}\nabla_\theta l(\theta)，H_{ij}= \frac {\partial^2 l(\theta)}{\partial \theta_i \partial \theta_j}\end{cases}$$\Rightarrow$求得最大$l(\theta)$及其对应的$\theta$(Fisher评分）
 
@@ -477,6 +491,26 @@ $ p(y;\eta) =b(y)exp(\eta^TT(y)-a(\eta))$
 
 
 #### 广义线性模型特例：$\gamma$和指数分布
+
+
+
+### 高斯判别分析（GDA）（一种判别分析算法）
+
+#### 多元正态分布／多变量高斯分布
+
+
+
+#### 高斯判别分析（GDA）（一种判别分析算法）
+
+$\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli(\phi)\\x|y = 0 & \sim N(\mu_o,\Sigma)\\x|y = 1 & \sim N(\mu_1,\Sigma)\\\end{aligned}\end{cases}\end{cases}$$\Rightarrow$高斯判别分析（GDA）
+
+**高斯辨别分析**，是一种特殊的逻辑回归。所以**逻辑回归**比**高斯判别分析**更抽象，**高斯判别分析**比**逻辑回归**更精确。
+
+![](https://raw.githubusercontent.com/Kivy-CN/Stanford-CS-229-CN/master/img/cs229note2f6.png)
+
+### 朴素贝叶斯
+
+
 
 
 
