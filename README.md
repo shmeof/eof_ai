@@ -120,7 +120,7 @@
 
 #### 非方阵：行数 $\ne$ 列数
 
-#### 点积/点乘：n纬 线性变换到 1维
+#### 点乘／点积／内积：n纬 线性变换到 1维
 
 > 点积 > 0：方向相同
 >
@@ -300,6 +300,8 @@
 
 #### 期望
 
+
+
 #### 方差
 
 
@@ -410,10 +412,6 @@
 
 
 
-
-
-
-
 ## 机器学习基础
 
 [斯坦福大学公开课 ：机器学习课程](http://open.163.com/special/opencourse/machinelearning.html)
@@ -478,11 +476,11 @@ $ p(y;\eta) =b(y)exp(\eta^TT(y)-a(\eta))$
 
 
 
-#### 广义线性模型特例：多项式分布
+#### 广义线性模型特例：多项式分布（多值化）
 
 
 
-#### 广义线性模型特例：泊松分布
+#### 广义线性模型特例：泊松分布（Possion）
 
 
 
@@ -494,7 +492,11 @@ $ p(y;\eta) =b(y)exp(\eta^TT(y)-a(\eta))$
 
 
 
-### 高斯判别分析（GDA）（一种判别分析算法）
+#### 伯努利分布（二值化）
+
+
+
+### 高斯判别分析法（GDA）（一种判别分析算法）
 
 #### 多元正态分布／多变量高斯分布
 
@@ -508,7 +510,55 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 ![](https://raw.githubusercontent.com/Kivy-CN/Stanford-CS-229-CN/master/img/cs229note2f6.png)
 
-### 朴素贝叶斯
+### 朴素贝叶斯（NB）
+
+#### 朴素贝叶斯假设
+
+朴素贝叶斯假设：对于特定y，特征向量$X_i$是独立的。即：$p(x_i|y)=p(x_i|y, x_j)$
+
+当原生的连续值的属性不太容易用一个**多元正态分布**来进行建模的时候，将其特征向量离散化后使用**朴素贝叶斯（NB）**来替代**高斯判别分析（GDA）**，通常能形成一个更好的分类器。
+
+
+
+#### 拉普拉斯光滑
+
+
+
+#### 文本分类时间模型
+
+
+
+### 最优间隔分类器
+
+#### 线性可分
+
+[线性可分](https://www.cnblogs.com/lgdblog/p/6858832.html)
+
+#### 函数边界
+
+#### 几何边界
+
+#### 拉格朗日乘子法
+
+拉格朗日乘子法：把目标函数和等式约束统一到拉格朗日函数中。
+
+[拉格朗日乘子法 - 搜索结果 - 知乎](https://www.zhihu.com/search?type=content&q=%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95)
+
+#### 拉格朗日对偶性
+
+
+
+#### 支持向量机（SVM）
+
+[支持向量机(SVM)是什么意思？ - 知乎](https://www.zhihu.com/question/21094489)
+
+[SVM with polynomial kernel visualization - YouTube](https://www.youtube.com/watch?v=3liCbRZPrZA)
+
+#### 最优边界分类器
+
+
+
+#### 核（Kernels）
 
 
 
