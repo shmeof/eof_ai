@@ -1,4 +1,4 @@
-# 深度学习
+# 人工智能
 
 ## 线性代数基础
 
@@ -699,6 +699,20 @@ logistic回归
 
 
 
+## Keras
+
+[[DSC 2016] 系列活動：李宏毅 / 一天搞懂深度學習](https://www.slideshare.net/tw_dsconf/ss-62245351?qid=108adce3-2c3d-4758-a830-95d0a57e46bc&v=&b=&from_search=3)
+
+
+
+#### ReLU
+
+$ReLU\begin{cases}Leaky\ ReLU\\Parametric\ ReLU\end{cases}$
+
+#### Maxout
+
+
+
 ## Tensorflow
 
 ### 概念
@@ -762,7 +776,6 @@ logistic回归
         常见的coss函数：交叉熵（cross-entropy）
         交叉熵：用来衡量我们的预测用于描述真相的低效性。
         随机训练：使用一小部分随机数据进行训练。
-
 
 
 ---
