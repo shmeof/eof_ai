@@ -246,7 +246,7 @@
 
 ### 课程
 
-掌握机器学习数学基础之概率统计（重点知识）](https://zhuanlan.zhihu.com/p/30314229?utm_medium=social&utm_source=wechat_session)
+[掌握机器学习数学基础之概率统计（重点知识）](https://zhuanlan.zhihu.com/p/30314229?utm_medium=social&utm_source=wechat_session)
 
 ### 笔记
 
@@ -428,7 +428,7 @@
 
 $\begin{cases}线性函数：h(x)=\vec \theta^T\vec x\\成本函数：J(\theta)= \frac 12 \sum^m_{i=1}(H_\theta(x^{(i)})-y^{(i)})^2\\梯度下降：\theta_j := \theta_j - \alpha \frac \partial {\partial\theta_J}J(\theta)\end{cases}$ $\Rightarrow$ 最小均方算法（LMS）：$\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
 
-$梯度下降\begin{cases}批量梯度下降\\增量梯度下降\end{cases}$
+$梯度下降\begin{cases}批量梯度下降\\增量梯度下降（IGD）／随机梯度下降（SGD）\end{cases}$
 
 #### 求$\vec \theta$，非迭代方法（快）-法线方程
 
@@ -440,7 +440,7 @@ $梯度下降\begin{cases}批量梯度下降\\增量梯度下降\end{cases}$
 
 ### 逻辑回归（一种判别分析算法）
 
-#### 逻辑函数／双弯曲S型函数（sigmoid）
+#### 逻辑函数／双弯曲S型函数（sigmoid）（可用作激活函数、非线性）
 
  $h_\theta(x) = g(\theta^T x) = \frac  1{1+e^{-\theta^Tx}}$
 
@@ -506,7 +506,7 @@ $ p(y;\eta) =b(y)exp(\eta^TT(y)-a(\eta))$
 
 $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli(\phi)\\x|y = 0 & \sim N(\mu_o,\Sigma)\\x|y = 1 & \sim N(\mu_1,\Sigma)\\\end{aligned}\end{cases}\end{cases}$$\Rightarrow$高斯判别分析（GDA）
 
-**高斯辨别分析**，是一种特殊的逻辑回归。所以**逻辑回归**比**高斯判别分析**更抽象，**高斯判别分析**比**逻辑回归**更精确。
+**高斯判别分析**，是一种特殊的逻辑回归。所以**逻辑回归**比**高斯判别分析**更抽象，**高斯判别分析**比**逻辑回归**更精确。
 
 ![](https://raw.githubusercontent.com/Kivy-CN/Stanford-CS-229-CN/master/img/cs229note2f6.png)
 
@@ -516,15 +516,15 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 朴素贝叶斯假设：对于特定y，特征向量$X_i$是独立的。即：$p(x_i|y)=p(x_i|y, x_j)$
 
-当原生的连续值的属性不太容易用一个**多元正态分布**来进行建模的时候，将其特征向量离散化后使用**朴素贝叶斯（NB）**来替代**高斯判别分析（GDA）**，通常能形成一个更好的分类器。
+当原生的连续值的属性不太容易用一个**多元正态分布**来进行建模的时候，将其特征向量离散化后使用**朴素贝叶斯（NB）**来替代**高斯判别分析（GDA）**，通常能形成一个更好的**分类器**。
 
 
 
-#### 拉普拉斯光滑
+#### 拉普拉斯光滑（Laplace）
 
 
 
-#### 文本分类时间模型
+#### 文本分类事件模型
 
 
 
@@ -536,7 +536,11 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 #### 函数边界
 
+
+
 #### 几何边界
+
+
 
 #### 拉格朗日乘子法
 
@@ -548,7 +552,25 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
+#### 准确率
+
+针对测试结果（分母），样本中的正例有多少被预测正确。
+
+#### 召回率
+
+针对样本（分母），预测为正的样本中有多少是真正的正样本。
+
 #### 支持向量机（SVM）
+
+[[推荐]SVM入门（一）至（三）Refresh - Jasper's Java Jacal - BlogJava](http://www.blogjava.net/zhenandaci/archive/2016/02/29/254519.html)
+
+松弛变量：
+
+惩罚因子C：
+
+倾斜问题：
+
+
 
 [支持向量机(SVM)是什么意思？ - 知乎](https://www.zhihu.com/question/21094489)
 
@@ -561,6 +583,12 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 #### 核（Kernels）
 
 
+
+#### 坐标上升算法
+
+
+
+#### SMO
 
 
 
