@@ -624,13 +624,27 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
+### 感知机
+
+**非常推荐：**[[Machine Learning & Algorithm] 神经网络基础 - Poll的笔记 - 博客园](http://www.cnblogs.com/maybe2030/p/5597716.html#_label0)
+
+![img](https://images2015.cnblogs.com/blog/764050/201606/764050-20160619111613406-1210494225.png)
+
+![img](https://images2015.cnblogs.com/blog/764050/201606/764050-20160619145050085-1140057304.jpg)
+
 ### ReLU（Rectified linear unit）（修正线性单元）
 
 #### ReLU
 
 $f(x) = max(0, x)$
 
-$\begin{cases} Leaky-ReLU\\Parametric-ReLU \\Randomized-ReLU\end{cases}$
+$\begin{cases} Leaky\ ReLU\\Parametric\ ReLU \\Randomized\ ReLU\\Noisy\ ReLU\end{cases}$
+
+
+
+[神经网络回顾-Relu激活函数 - 1357 - 博客园](http://www.cnblogs.com/qw12/p/6294430.html)
+
+[线性整流函数_百度百科](https://wapbaike.baidu.com/item/%E7%BA%BF%E6%80%A7%E6%95%B4%E6%B5%81%E5%87%BD%E6%95%B0/20263760?fr=aladdin)
 
 
 
