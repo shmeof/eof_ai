@@ -314,6 +314,12 @@
 >
 > $E[\vec Z]$：$\vec Z$的期望
 
+
+
+#### 均方误差（MSE）
+
+
+
 #### 相关系数
 
 
@@ -418,6 +424,10 @@
 
 [Kivy-CN/Stanford-CS-229-CN: A Chinese Translation of Stanford CS229 notes 斯坦福机器学习CS229课程讲义的中文翻译](https://github.com/Kivy-CN/Stanford-CS-229-CN)
 
+**从零开始深度学习书籍推荐：**[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
+
+
+
 ### 机器学习三要素
 
 模型、策略、算法
@@ -438,7 +448,7 @@ $梯度下降\begin{cases}批量梯度下降\\增量梯度下降（IGD）／随�
 
 #### 最小二乘法得到的$\theta$和最大似然法得到的$\theta$是一致的
 
-### 逻辑回归（Logistic回归、两分类）（一种判别分析算法）
+### 逻辑回归（logistic回归、两分类）（一种判别分析算法）
 
 #### 逻辑函数／双弯曲S型函数（sigmoid）（可用作激活函数、非线性）
 
@@ -468,15 +478,15 @@ $ p(y;\eta) =b(y)exp(\eta^TT(y)-a(\eta))$
 
 
 
-#### 广义线性模型特例：逻辑回归（Logistic回归）
+#### 广义线性模型特例：逻辑回归（logistic回归，LR）
 
 
 
-#### 广义线性模型特例：Softmax回归
+#### 广义线性模型特例：softmax回归
 
-Softmax回归：逻辑回归（logistic回归）模型在多分类问题上的推广。
+softmax回归：逻辑回归（logistic回归）模型在多分类问题上的推广。
 
-$处理分类问题\begin{cases}Softmax回归：各分类是互斥。\\K个Logistic回归（二元分类器）：各分类非互斥。\end{cases}$
+$处理分类问题\begin{cases}k个logistic回归（二分类器、基于伯努利分布）：各分类非互斥。\\softmax回归（多分类器、基于多项式分布）：各分类是互斥。\end{cases}$
 
 #### 广义线性模型特例：多项式分布（多值化）
 
@@ -632,6 +642,20 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 ![img](https://images2015.cnblogs.com/blog/764050/201606/764050-20160619145050085-1140057304.jpg)
 
+#### 最简单的非线性可分问题：异或问题
+
+### BP传播算法
+
+#### BP传播算法
+
+[通俗理解神经网络BP传播算法](https://zhuanlan.zhihu.com/p/24801814)
+
+#### 梯度消失问题
+
+[[Machine Learning] 深度学习中消失的梯度 - Poll的笔记 - 博客园](http://www.cnblogs.com/maybe2030/p/6336896.html)
+
+####  梯度激增问题
+
 ### ReLU（Rectified linear unit）（修正线性单元）
 
 #### ReLU
@@ -645,6 +669,16 @@ $\begin{cases} Leaky\ ReLU\\Parametric\ ReLU \\Randomized\ ReLU\\Noisy\ ReLU\end
 [神经网络回顾-Relu激活函数 - 1357 - 博客园](http://www.cnblogs.com/qw12/p/6294430.html)
 
 [线性整流函数_百度百科](https://wapbaike.baidu.com/item/%E7%BA%BF%E6%80%A7%E6%95%B4%E6%B5%81%E5%87%BD%E6%95%B0/20263760?fr=aladdin)
+
+### 神经网络可逼近任意连续函数
+
+#### 阶跃函数
+
+[【神经网络和深度学习】笔记 - 第四章 神经网络可以实现任意函数的直观解释 - 野路子程序员 - 博客园](https://www.cnblogs.com/yeluzi/p/7491619.html)
+
+
+
+
 
 
 
@@ -807,6 +841,8 @@ $ReLU\begin{cases}Leaky\ ReLU\\Parametric\ ReLU\end{cases}$
 * sess = tf.Session() : 启动会话
 * sess.run() : 执行图
 * sess.close() : 关闭会话
+
+
 
 ### MNIST : Hellow World
 
