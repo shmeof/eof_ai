@@ -2,17 +2,17 @@
 
 ## 线性代数基础
 
-### 视频课程
+### 课程
 
 [[推荐]可视化理解：线性代数的本质 - 系列合集](https://www.bilibili.com/video/av6731067/)
 
-### 课程笔记：
+### 笔记
 
 #### 向量
 
 #### 基
 
-基：一般看矩阵的列。
+> 基：一般看矩阵的列。
 
 #### 张成的空间
 
@@ -430,7 +430,7 @@
 
 ### 机器学习三要素
 
-模型、策略、算法
+$\begin{cases}模型\\策略\\算法\end{cases}$
 
 ### 回归
 
@@ -454,7 +454,7 @@ $梯度下降\begin{cases}批量梯度下降\\增量梯度下降（IGD）／随�
 
 #### 最小二乘法得到的$\theta$和最大似然法得到的$\theta$是一致的
 
-### 逻辑回归（LR-Logistic Regression、两分类）（一种判别分析算法）
+### 逻辑回归（LR-Logistic Regression、二分类）（一种判别分析算法）
 
 #### 逻辑函数／双弯曲S型函数（sigmoid）（可用作激活函数、非线性）
 
@@ -464,15 +464,17 @@ sigmoid：$g(z)= \frac 1 {1+e^{-z}}$
 
 $\begin{aligned}\dot{g}(z) = g(z)(1-g(z))\\\end{aligned}$
 
+[【机器学习】Logistic Regression 的前世今生（理论篇） - CSDN博客](https://blog.csdn.net/cyh_24/article/details/50359055)
+
 #### 求$\vec \theta$，慢，梯度上升
 
 $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 梯度上升：\begin{aligned}\frac  {\partial}{\partial \theta_j} l(\theta) &=(y\times \frac  1 {g(\theta ^T x)}  - (1-y)\times\frac  1 {1- g(\theta ^T x)}   )\frac  {\partial}{\partial \theta_j}g(\theta ^Tx) \\&= (y\times \frac  1 {g(\theta ^T x)}  - (1-y)\times \frac  1 {1- g(\theta ^T x)}   )  g(\theta^Tx)(1-g(\theta^Tx)) \frac  {\partial}{\partial \theta_j}\theta ^Tx \\&= (y(1-g(\theta^Tx) ) -(1-y) g(\theta^Tx)) x_j\\&= (y-h_\theta(x))x_j\end{aligned}\end{cases}$$\Rightarrow$ $\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
 
-#### 求$\vec \theta$，快，牛顿法（1维）/牛顿-拉普森法（n维）
+#### 求$\vec \theta$，快，牛顿法（1维）／牛顿-拉普森法（n维）
 
 $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 牛顿-拉普森法：\theta := \theta - H^{-1}\nabla_\theta l(\theta)，H_{ij}= \frac {\partial^2 l(\theta)}{\partial \theta_i \partial \theta_j}\end{cases}$$\Rightarrow$求得最大$l(\theta)$及其对应的$\theta$(Fisher评分）
 
-### 广义线性模型
+### 广义线性模型（GLM，Generalized Linear Models）
 
 #### 指数族
 
@@ -493,6 +495,8 @@ $ p(y;\eta) =b(y)exp(\eta^TT(y)-a(\eta))$
 softmax回归：逻辑回归（logistic回归）模型在多分类问题上的推广。
 
 $处理分类问题\begin{cases}k个logistic回归（二分类器、基于伯努利分布）：各分类非互斥。\\softmax回归（多分类器、基于多项式分布）：各分类是互斥。\end{cases}$
+
+softmax：可以用来给不同对象分配概率。
 
 #### 广义线性模型特例：多项式分布（多值化）
 
@@ -536,8 +540,6 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 当原生的连续值的属性不太容易用一个**多元正态分布**来进行建模的时候，将其特征向量离散化后使用**朴素贝叶斯（NB）**来替代**高斯判别分析（GDA）**，通常能形成一个更好的**分类器**。
 
-
-
 #### 拉普拉斯光滑（Laplace）
 
 
@@ -552,11 +554,7 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 [线性可分](https://www.cnblogs.com/lgdblog/p/6858832.html)
 
-#### 函数边界
-
-
-
-#### 几何边界
+#### 函数边界／几何边界
 
 
 
@@ -570,21 +568,13 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
-#### 准确率
-
-针对测试结果（分母），样本中的正例有多少被预测正确。
-
-#### 召回率
-
-针对样本（分母），预测为正的样本中有多少是真正的正样本。
-
 #### SVM-支持向量机
 
 [[推荐]SVM入门（一）至（三）Refresh - Jasper's Java Jacal - BlogJava](http://www.blogjava.net/zhenandaci/archive/2016/02/29/254519.html)
 
 松弛变量：
 
-惩罚因子C：
+惩罚因子：
 
 倾斜问题：
 
@@ -610,7 +600,17 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
-#### 熵
+#### LR（Logistic Regression） vs SVM（Support Vector Machine）
+
+[Logistic Regression and SVM](http://charleshm.github.io/2016/03/LR-SVM/?utm_medium=social&utm_source=wechat_session#fn:1)
+
+### 准确率／召回率
+
+**准确率**：针对测试结果（分母），样本中的正例有多少被预测正确。
+
+**召回率**：针对样本（分母），预测为正的样本中有多少是真正的正样本。
+
+### 熵
 
 **熵**的本质：香农信息量的期望。
 
@@ -684,7 +684,9 @@ $\begin{cases} Leaky\ ReLU\\Parametric\ ReLU \\Randomized\ ReLU\\Noisy\ ReLU\end
 
 [线性整流函数_百度百科](https://wapbaike.baidu.com/item/%E7%BA%BF%E6%80%A7%E6%95%B4%E6%B5%81%E5%87%BD%E6%95%B0/20263760?fr=aladdin)
 
+### 拟合
 
+$\begin{cases}欠拟合\rightarrow增加特征量\\过拟合\rightarrow减少特征量/正则化\end{cases}$
 
 ### 神经网络
 
@@ -701,6 +703,20 @@ $\begin{cases}增加节点数\rightarrow增加维度\rightarrow增加线性转�
 #### 神经网络可以计算任何函数的可视化证明
 
 参考书籍（第111页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
+
+
+
+### CNN-卷积神经网络
+
+
+
+### RNN-循环神经网络
+
+
+
+### DNN-深度神经网络
+
+
 
 
 
@@ -815,21 +831,21 @@ logistic回归
 
 ### 笔记：[第7课]
 
+### 笔记：[第8课]
+
+### 笔记：[第9课]
+
+### 笔记：[第10课]
+
+### 笔记：[第11课]
+
+### 笔记：[第12课]
+
 
 
 ## Python-MNIST
 
 **从零开始深度学习书籍推荐：**[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
-
-
-
-## Keras
-
-[[DSC 2016] 系列活動：李宏毅 / 一天搞懂深度學習](https://www.slideshare.net/tw_dsconf/ss-62245351?qid=108adce3-2c3d-4758-a830-95d0a57e46bc&v=&b=&from_search=3)
-
-
-
-#### Maxout
 
 
 
@@ -843,18 +859,6 @@ logistic回归
 -   Variable：变量，维护状态。
 -   Feed/Fetch：为任何操作（Operation，节点）写数据／读数据
 -   Shape：
-
-
-### CNN-卷积神经网络
-
-
-
-### RNN-循环神经网络
-
-
-
-### DNN-深度神经网络
-
 
 
 ### 常用方法
@@ -879,35 +883,16 @@ logistic回归
 * sess.close() : 关闭会话
 
 
+### Tensorflow-MNIST
 
-### Tensorflow-MNIST : Hellow World
-
-* [MNIST机器学习入门](http://www.tensorfly.cn/tfdoc/tutorials/mnist_beginners.html)
-
-* Softmax模型可以用来给不同对象分配概率
-* Softmax回归
-
-        图片 -> 标签
-        
-        每张图片：28*28=784像素 [1, 784]
-        
-        标签全集：数字0-9 [1, 10]
-        
-        训练数据集：60000张  [60000, 784] -> [60000, 10]
-        
-        测试数据集：10000张  [10000, 784]
-    * 实现回归模型
-    * 训练模型
-        衡量模型好：
-        衡量模型坏：成本coss/损失loss
-
-        常见的coss函数：交叉熵（cross-entropy）
-        交叉熵：用来衡量我们的预测用于描述真相的低效性。
-        随机训练：使用一小部分随机数据进行训练。
-
-
----
-
-参考资料：
+[MNIST机器学习入门](http://www.tensorfly.cn/tfdoc/tutorials/mnist_beginners.html)
 
 [深层学习为何要“Deep”（上）](https://zhuanlan.zhihu.com/p/22888385)
+
+
+
+## Keras
+
+[[DSC 2016] 系列活動：李宏毅 / 一天搞懂深度學習](https://www.slideshare.net/tw_dsconf/ss-62245351?qid=108adce3-2c3d-4758-a830-95d0a57e46bc&v=&b=&from_search=3)
+
+#### Maxout
