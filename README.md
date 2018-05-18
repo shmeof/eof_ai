@@ -432,6 +432,10 @@
 
 模型、策略、算法
 
+### 回归
+
+[(1 条消息)为什么线性回归叫“回归”？ - 知乎](https://www.zhihu.com/question/47455422)
+
 ### 线性回归
 
 #### 求$\vec \theta$，迭代方法（慢）-最小均方算法（LMS）
@@ -460,7 +464,7 @@ $\begin{aligned}\dot{g}(z) = g(z)(1-g(z))\\\end{aligned}$
 
 #### 求$\vec \theta$，慢，梯度上升
 
-$\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 梯度上升：\begin{aligned}\frac  {\partial}{\partial \theta_j} l(\theta) &=(y\times \frac  1 {g(\theta ^T x)}  - (1y)\times\frac  1 {1- g(\theta ^T x)}   )\frac  {\partial}{\partial \theta_j}g(\theta ^Tx) \\&= (y\times \frac  1 {g(\theta ^T x)}  - (1y)\times \frac  1 {1- g(\theta ^T x)}   )  g(\theta^Tx)(1-g(\theta^Tx)) \frac  {\partial}{\partial \theta_j}\theta ^Tx \\&= (y(1-g(\theta^Tx) ) -(1-y) g(\theta^Tx)) x_j\\&= (y-h_\theta(x))x_j\end{aligned}\end{cases}$$\Rightarrow$ $\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
+$\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 梯度上升：\begin{aligned}\frac  {\partial}{\partial \theta_j} l(\theta) &=(y\times \frac  1 {g(\theta ^T x)}  - (1-y)\times\frac  1 {1- g(\theta ^T x)}   )\frac  {\partial}{\partial \theta_j}g(\theta ^Tx) \\&= (y\times \frac  1 {g(\theta ^T x)}  - (1-y)\times \frac  1 {1- g(\theta ^T x)}   )  g(\theta^Tx)(1-g(\theta^Tx)) \frac  {\partial}{\partial \theta_j}\theta ^Tx \\&= (y(1-g(\theta^Tx) ) -(1-y) g(\theta^Tx)) x_j\\&= (y-h_\theta(x))x_j\end{aligned}\end{cases}$$\Rightarrow$ $\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
 
 #### 求$\vec \theta$，快，牛顿法（1维）/牛顿-拉普森法（n维）
 
@@ -610,7 +614,7 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 > $香农信息量 = log_2\frac{1}{p}$
 
-信息熵**：随机变量或整个系统的不确定性。
+**信息熵**：随机变量或整个系统的不确定性。
 
 >  $信息熵 = \sum^n_{k=1}p_klog_2\frac{1}{p_k}$
 >
@@ -628,7 +632,7 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 >
 > $q_k$：非真实分布
 
-**相对熵：**用来衡量两个取值为正的函数或概率分布之间的差异。
+**相对熵**：用来衡量两个取值为正的函数或概率分布之间的差异。
 
 > $KL(f(x) || g(x)) = \sum_{x\in X}f(x)log_2\frac{f(x)}{g(x)}$
 
@@ -650,15 +654,25 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 [通俗理解神经网络BP传播算法](https://zhuanlan.zhihu.com/p/24801814)
 
-#### 梯度消失问题
+#### 梯度消失问题／梯度激增问题
 
 [[Machine Learning] 深度学习中消失的梯度 - Poll的笔记 - 博客园](http://www.cnblogs.com/maybe2030/p/6336896.html)
 
-####  梯度激增问题
+神经网络可以计算任何函数的可视化证明，参考书籍（第137页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
-### ReLU（Rectified linear unit）（修正线性单元）
 
-#### ReLU
+
+### 激活函数-sigmoid（S型神经元）
+
+sigmoid：$g(z)= \frac 1 {1+e^{-z}}$
+
+### 激活函数-tanh（tanch神经元、双曲正切函数、hyperbolic tangent）
+
+tanch：$tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$
+
+由于$\sigma(z)=\frac{1+tanh(z/2)}{2}$，所以tanch是sigmoid函数按比例变化的版本。
+
+### 激活函数-ReLU（Rectified linear unit）（修正线性神经元、修正线性单元）
 
 $f(x) = max(0, x)$
 
@@ -676,7 +690,9 @@ $\begin{cases} Leaky\ ReLU\\Parametric\ ReLU \\Randomized\ ReLU\\Noisy\ ReLU\end
 
 [【神经网络和深度学习】笔记 - 第四章 神经网络可以实现任意函数的直观解释 - 野路子程序员 - 博客园](https://www.cnblogs.com/yeluzi/p/7491619.html)
 
-神经网络可以计算任何函数的可视化证明，参考书籍（第111页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
+#### 神经网络可以计算任何函数的可视化证明
+
+参考书籍（第111页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
 
 
@@ -785,6 +801,18 @@ logistic回归
 
 ### 笔记：[第4课]牛顿方法
 
+### 笔记：[第5课]
+
+### 笔记：[第6课]
+
+### 笔记：[第7课]
+
+
+
+## Python-MNIST
+
+**从零开始深度学习书籍推荐：**[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
+
 
 
 ## Keras
@@ -792,10 +820,6 @@ logistic回归
 [[DSC 2016] 系列活動：李宏毅 / 一天搞懂深度學習](https://www.slideshare.net/tw_dsconf/ss-62245351?qid=108adce3-2c3d-4758-a830-95d0a57e46bc&v=&b=&from_search=3)
 
 
-
-#### ReLU
-
-$ReLU\begin{cases}Leaky\ ReLU\\Parametric\ ReLU\end{cases}$
 
 #### Maxout
 
@@ -813,9 +837,15 @@ $ReLU\begin{cases}Leaky\ ReLU\\Parametric\ ReLU\end{cases}$
 -   Shape：
 
 
-### CNN、RNN、DNN
+### CNN-卷积神经网络
 
-感知机：
+
+
+### RNN-循环神经网络
+
+
+
+### DNN-深度神经网络
 
 
 
@@ -842,7 +872,7 @@ $ReLU\begin{cases}Leaky\ ReLU\\Parametric\ ReLU\end{cases}$
 
 
 
-### MNIST : Hellow World
+### Tensorflow-MNIST : Hellow World
 
 * [MNIST机器学习入门](http://www.tensorfly.cn/tfdoc/tutorials/mnist_beginners.html)
 
