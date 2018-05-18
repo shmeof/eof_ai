@@ -676,9 +676,7 @@ $\begin{cases} Leaky\ ReLU\\Parametric\ ReLU \\Randomized\ ReLU\\Noisy\ ReLU\end
 
 [【神经网络和深度学习】笔记 - 第四章 神经网络可以实现任意函数的直观解释 - 野路子程序员 - 博客园](https://www.cnblogs.com/yeluzi/p/7491619.html)
 
-
-
-
+神经网络可以计算任何函数的可视化证明，参考书籍（第111页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
 
 

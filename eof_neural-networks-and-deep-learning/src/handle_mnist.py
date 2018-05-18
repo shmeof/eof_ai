@@ -12,7 +12,7 @@ import network
 # 输入层：784个神经元
 # 隐藏层：30个神经元
 # 输出层：10个神经元
-net = network.Network([784, 30, 10])
+net = network.Network([784, 100, 10])
 
 # epochs: 30
 net.SGD(training_data, 30, 10, 3.0, test_data = test_data)
