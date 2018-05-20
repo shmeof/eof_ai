@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="700c6d1f-211f-41a8-8e37-ae5dfc13badf" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/handle_mnist.py" afterPath="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/handle_mnist.py" />
+      <change beforePath="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/network.py" afterPath="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/network.py" />
+      <change beforePath="$PROJECT_DIR$/test4.py" afterPath="$PROJECT_DIR$/test4.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +16,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="handle_mnist.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="handle_mnist.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/handle_mnist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+            <state relative-caret-position="285">
+              <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="network.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/network.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="53" column="44" lean-forward="true" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -48,6 +61,10 @@
       <find>GradientDescentOptimizer</find>
       <find>train_step</find>
       <find>data/mnist.pkl.gz</find>
+      <find>back</find>
+      <find>forw</find>
+      <find>a1</find>
+      <find>delta</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -64,17 +81,17 @@
         <option value="$PROJECT_DIR$/MNIST_advance.py" />
         <option value="$PROJECT_DIR$/test0.py" />
         <option value="$PROJECT_DIR$/MNIST_simple.py" />
-        <option value="$PROJECT_DIR$/test4.py" />
         <option value="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/network.py" />
         <option value="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/handle_mist.py" />
         <option value="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/mnist_loader.py" />
         <option value="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/handle_mnist.py" />
-        <option value="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/network.py" />
         <option value="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/handle_mnist.py" />
+        <option value="$PROJECT_DIR$/test4.py" />
+        <option value="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/network.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="720" />
     <option name="y" value="23" />
     <option name="width" value="720" />
@@ -180,6 +197,11 @@
             <path>
               <item name="eof_ai" type="b2602c69:ProjectViewProjectNode" />
               <item name="eof_ai" type="462c0819:PsiDirectoryNode" />
+              <item name="eof_MNIST" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="eof_ai" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eof_ai" type="462c0819:PsiDirectoryNode" />
               <item name="eof_neural-networks-and-deep-learning" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -187,44 +209,6 @@
               <item name="eof_ai" type="462c0819:PsiDirectoryNode" />
               <item name="eof_neural-networks-and-deep-learning" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eof_ai" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="eof_ai" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 (tensorflow) &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="eof_ai" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 (tensorflow) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-170008806" type="70582d5e:PySkeletonsNode" />
-            </path>
-            <path>
-              <item name="eof_ai" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 (tensorflow) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-170008806" type="70582d5e:PySkeletonsNode" />
-              <item name="numpy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eof_ai" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 (tensorflow) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-170008806" type="70582d5e:PySkeletonsNode" />
-              <item name="numpy" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eof_ai" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 (tensorflow) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="-170008806" type="70582d5e:PySkeletonsNode" />
-              <item name="numpy" type="462c0819:PsiDirectoryNode" />
-              <item name="random" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -250,7 +234,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.handle_mnist">
     <configuration name="handle_mnist" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -264,6 +248,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="eof_tensorflow" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/handle_mnist.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="test4" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="eof_tensorflow" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -353,9 +355,14 @@
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.handle_mnist" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test4" />
+    </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Python.handle_mnist" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test4" />
       </list>
     </recent_temporary>
   </component>
@@ -376,14 +383,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="720" y="23" width="720" height="828" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="828" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.73390555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25933757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30832195" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33560708" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25784448" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33969986" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -402,7 +409,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -552,16 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding>
-            <element signature="e#43#56#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.3/python_stubs/-170008806/numpy/core/multiarray.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -594,20 +593,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/network.py">
+    <entry file="file://$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/handle_mnist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding>
-            <element signature="e#43#56#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="285">
+          <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/handle_mnist.py">
+    <entry file="file://$PROJECT_DIR$/test4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
+        <state relative-caret-position="314">
+          <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eof_neural-networks-and-deep-learning/src/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="53" column="44" lean-forward="true" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
           <folding />
         </state>
       </provider>

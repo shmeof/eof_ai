@@ -15,4 +15,6 @@ import network
 net = network.Network([784, 100, 10])
 
 # epochs: 30
+# mini_batch_size：10
+# eta：3.0
 net.SGD(training_data, 30, 10, 3.0, test_data = test_data)
