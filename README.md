@@ -708,11 +708,11 @@ $KL(f(x) || g(x)) = \sum_{x\in X}f(x)log_2\frac{f(x)}{g(x)}$
 
 #### 最简单的非线性可分问题：异或问题
 
-### 算法-BP传播算法
+### 算法-反向传播算法（BP）
 
-#### BP传播算法
+#### 反向传播算法
 
-[通俗理解神经网络BP传播算法](https://zhuanlan.zhihu.com/p/24801814)
+参考书籍（第34页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
 #### 梯度消失问题／梯度激增问题
 
@@ -762,7 +762,7 @@ $\begin{cases}增加节点数\rightarrow增加维度\rightarrow增加线性转�
 
 参考书籍（第111页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
-### 反向传播算法
+### 反向传播算法（BP-Back Propagation）
 
 #### 神经元上的误差
 
@@ -788,7 +788,7 @@ $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec
 
 ### CNN-卷积神经网络
 
-#### 卷积层
+#### 卷积层（Conv Layers）
 
 ##### 感受野
 
@@ -806,7 +806,7 @@ $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec
 
 
 
-#### 混合层／池化层（pooling layers）
+#### 混合层／池化层（Pooling Layers）
 
 $\begin{cases}最大值混合（max-pooling）：对领域特征点取最大值\\平均池化（mean-pooling）：对领域特征点求平均\\L2混合（L2-pooling）：对领域特征点取平方和之后算平方根\end{cases}$
 
@@ -877,7 +877,7 @@ RNN在处理时序数据和过程上效果特别不错。如语音识别、自�
 
 			回报函数
 	
-支持向量机
+支持向量机-SVM
 
 
 
@@ -892,7 +892,7 @@ RNN在处理时序数据和过程上效果特别不错。如语音识别、自�
 ### 笔记：[第2课]监督学习应用.梯度下降
 
 
-线性回归（一种参数学习算法）
+线性回归
 	m：训练集大小
 	x：输入
 	y：输出
@@ -901,7 +901,7 @@ RNN在处理时序数据和过程上效果特别不错。如语音识别、自�
 梯度下降算法
 	局部最优问题
 	批梯度下降算法
-	随机梯度下降算法/增量梯度下降算法
+	随机梯度下降算法／增量梯度下降算法
 	梯度上升算法
 	
 	矩阵的迹：n×n矩阵A的主对角线（从左上方至右下方的对角线）上各个元素的总和。
@@ -967,6 +967,10 @@ logistic回归
 
 
 
+## PyTorch
+
+
+
 ## Tensorflow
 
 ### 概念
@@ -1006,6 +1010,10 @@ logistic回归
 [MNIST机器学习入门](http://www.tensorfly.cn/tfdoc/tutorials/mnist_beginners.html)
 
 [深层学习为何要“Deep”（上）](https://zhuanlan.zhihu.com/p/22888385)
+
+
+
+## Theano
 
 
 
