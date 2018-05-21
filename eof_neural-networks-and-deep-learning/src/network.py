@@ -14,7 +14,7 @@ class Network(object):
         # 随机化权重（符合正态分布）
         self.weights = [np.random.randn(y, x) for x, y in zip(sizes[:-1], sizes[1:])]
 
-    # 前向传播
+    #
     def feedforward(self, a):
         for b, w in zip(self.biases, self.weights):
             a = (np.dot(w, a) + b)

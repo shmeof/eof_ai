@@ -10,7 +10,7 @@
 
 ### 笔记
 
-#### 向量
+#### 向量：
 
 #### 基：矩阵的列
 
@@ -460,7 +460,7 @@
 
 ### 机器学习三要素
 
-$\begin{cases}模型\\策略\\算法\end{cases}$
+$\begin{cases}算法\\模型\\策略\end{cases}$
 
 ### 回归
 
@@ -468,13 +468,19 @@ $\begin{cases}模型\\策略\\算法\end{cases}$
 
 $\begin{cases}梯度下降-一阶收敛：用平面来逼近局部\\牛顿法-二阶收敛：用曲面来逼近局部\end{cases}$
 
-### 线性回归
+### 代价函数
+
+$\begin{cases}二次代价函数\\交叉熵代价函数\end{cases}$
+
+### 梯度下降（GD／SGD）
+
+$梯度下降\begin{cases}批量梯度下降\\增量梯度下降（IGD）／随机梯度下降（SGD）\end{cases}$
+
+### 算法-线性回归
 
 #### 求$\vec \theta$，迭代方法（慢）-最小均方算法（LMS）
 
 $\begin{cases}线性函数：h(x)=\vec \theta^T\vec x\\成本函数：J(\theta)= \frac 12 \sum^m_{i=1}(H_\theta(x^{(i)})-y^{(i)})^2\\梯度下降：\theta_j := \theta_j - \alpha \frac \partial {\partial\theta_J}J(\theta)\end{cases}$ $\Rightarrow$ 最小均方算法（LMS）：$\theta_j := \theta_j + \alpha (y^{(i)}-h_\theta (x^{(i)}))x_j^{(i)}$
-
-$梯度下降\begin{cases}批量梯度下降\\增量梯度下降（IGD）／随机梯度下降（SGD）\end{cases}$
 
 #### 求$\vec \theta$，非迭代方法（快）-法线方程
 
@@ -484,7 +490,7 @@ $梯度下降\begin{cases}批量梯度下降\\增量梯度下降（IGD）／随�
 
 #### 最小二乘法得到的$\theta$和最大似然法得到的$\theta$是一致的
 
-### 逻辑回归（LR-Logistic Regression、二分类）（一种判别分析算法）
+### 算法-逻辑回归（LR-Logistic Regression、二分类）
 
 #### 逻辑函数／双弯曲S型函数（sigmoid）（可用作激活函数、非线性）
 
@@ -504,7 +510,7 @@ $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{a
 
 $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 牛顿-拉普森法：\theta := \theta - H^{-1}\nabla_\theta l(\theta)，H_{ij}= \frac {\partial^2 l(\theta)}{\partial \theta_i \partial \theta_j}\end{cases}$$\Rightarrow$求得最大$l(\theta)$及其对应的$\theta$(Fisher评分）
 
-#### 正则化
+#### 正则化／规范化
 
 $\begin{cases}L1：\\L2：\end{cases}$
 
@@ -552,7 +558,7 @@ softmax：可以用来给不同对象分配概率。
 
 
 
-### 高斯判别分析法（GDA）（一种判别分析算法）
+### 高斯判别分析（GDA）
 
 #### 多元正态分布／多变量高斯分布
 
@@ -602,7 +608,7 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
-#### SVM-支持向量机
+#### 算法-SVM（Support Vector Machine、支持向量机）
 
 [[推荐]SVM入门（一）至（三）Refresh - Jasper's Java Jacal - BlogJava](http://www.blogjava.net/zhenandaci/archive/2016/02/29/254519.html)
 
@@ -640,11 +646,11 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
-#### 决策树
+### 决策树
 
 
 
-#### xgboost
+### xgboost
 
 
 
@@ -658,29 +664,37 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 **熵**的本质：香农信息量的期望。
 
-> $香农信息量 = log_2\frac{1}{p}$
+$香农信息量 = log_2\frac{1}{p}$
+
+#### 信息熵
 
 **信息熵**：随机变量或整个系统的不确定性。
 
->  $信息熵 = \sum^n_{k=1}p_klog_2\frac{1}{p_k}$
->
-> $p_k$：真实分布
->
-> 信息熵：信息熵是消除系统的不确定性的最小代价。
+$信息熵 = \sum^n_{k=1}p_klog_2\frac{1}{p_k}$
+
+$p_k$：真实分布
+
+信息熵：信息熵是消除系统的不确定性的最小代价。
 
 [如何通俗的解释交叉熵与相对熵? - 知乎](https://www.zhihu.com/question/41252833/answer/378143666)
 
+#### 交叉熵
+
 **交叉熵**：用来衡量在给定的真实分布下，使用非真实分布所指定的策略消除系统的不确定性所需要付出的努力的大小。
 
->  $交叉熵 = \sum^n_{k=1}p_klog_2\frac{1}{q_k}$
->
-> $p_k$：真实分布
->
-> $q_k$：非真实分布
+$交叉熵 = \sum^n_{k=1}p_klog_2\frac{1}{q_k}$
+
+$p_k$：真实分布
+
+$q_k$：非真实分布
+
+#### 相对熵
 
 **相对熵**：用来衡量两个取值为正的函数或概率分布之间的差异。
 
-> $KL(f(x) || g(x)) = \sum_{x\in X}f(x)log_2\frac{f(x)}{g(x)}$
+$KL(f(x) || g(x)) = \sum_{x\in X}f(x)log_2\frac{f(x)}{g(x)}$
+
+#### 代价函数-交叉熵代价函数
 
 
 
@@ -694,7 +708,7 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 #### 最简单的非线性可分问题：异或问题
 
-### BP传播算法
+### 算法-BP传播算法
 
 #### BP传播算法
 
@@ -730,7 +744,7 @@ $\begin{cases} Leaky\ ReLU\\Parametric\ ReLU \\Randomized\ ReLU\\Noisy\ ReLU\end
 
 ### 拟合
 
-$\begin{cases}欠拟合\rightarrow增加特征量\\过拟合\rightarrow减少特征量／正则化\end{cases}$
+$\begin{cases}欠拟合\rightarrow增加特征量／完善模型\\过拟合\rightarrow减少特征量／正则化\end{cases}$
 
 ### 神经网络
 
@@ -744,7 +758,7 @@ $\begin{cases}增加节点数\rightarrow增加维度\rightarrow增加线性转�
 
 [【神经网络和深度学习】笔记 - 第四章 神经网络可以实现任意函数的直观解释 - 野路子程序员 - 博客园](https://www.cnblogs.com/yeluzi/p/7491619.html)
 
-#### 神经网络可以计算任何函数的可视化证明
+### 神经网络可以计算任何函数的可视化证明
 
 参考书籍（第111页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
@@ -774,9 +788,37 @@ $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec
 
 ### CNN-卷积神经网络
 
+#### 卷积层
+
+##### 感受野
+
+
+
+##### 特征映射
+
+
+
+##### 卷积核／滤波器
+
+
+
+##### 共享权重／共享偏置
+
+
+
+#### 混合层／池化层（pooling layers）
+
+$\begin{cases}最大值混合（max-pooling）：对领域特征点取最大值\\平均池化（mean-pooling）：对领域特征点求平均\\L2混合（L2-pooling）：对领域特征点取平方和之后算平方根\end{cases}$
+
+
+
+#### 全连接层
+
 
 
 ### RNN-循环神经网络
+
+RNN在处理时序数据和过程上效果特别不错。如语音识别、自然语言处理等。
 
 
 
@@ -784,13 +826,23 @@ $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec
 
 
 
+### LSTMs-长短期记忆单元（Long short-term memory units）
+
+
+
+### DBN-深度信念网络（生成式模型和Boltzmann机）
+
+
+
+### Conway法则
+
 
 
 ## 斯坦福课程学习
 
-[斯坦福大学公开课 ：机器学习课程](http://open.163.com/special/opencourse/machinelearning.html)
+### 课程
 
----
+斯坦福大学公开课 ：机器学习课程](http://open.163.com/special/opencourse/machinelearning.html)
 
 ### 笔记：[第1课]机器学习的动机与应用
 
