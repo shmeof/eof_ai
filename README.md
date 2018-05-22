@@ -528,10 +528,6 @@ $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{a
 
 其中：$z_k^L=\sum_kw_{jk}^La_k^{L-1}+b_j^L$
 
-### 正则化／规范化
-
-$\begin{cases}L1：\\L2：\end{cases}$
-
 ### 广义线性模型（GLM，Generalized Linear Models）
 
 #### 指数族
@@ -801,6 +797,30 @@ $\begin{cases}输出误差：\delta^L=\nabla_aC\bigodot\sigma'(z^L)\\反向传�
 #### 反向传播算法步骤
 
 $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec x，针对每个\vec x进行以下计算\\2、前向传播：对于l=2,3,…,L，计算z^{x,l}=w^la^{x,l-1}+b，a^{x,l}=\sigma(z^{x,l})\\3、输出误差：\delta^{x,L}=\nabla_aC\bigodot\sigma'(z^{x,L})\\4、反向传播：对于l=L-1,L-2,…,2，计算\delta^{x,l}=((w^{l+1})^T\delta^{x,l+1})\bigodot\sigma'(z^{x,l})\\5、梯度下降：对于l=L-1,L-2,...2，更新w^l=w^l-\frac{\eta}{m}\sum_x\delta^{x,l}(a^{x,l-1})^T，b^l=b^l-\frac{\eta}{m}\sum_x\delta^{x,l}\end{cases}$
+
+### 正则化／规范化
+
+正则化／规范化：寻找**小的权重**和**最小化原始代价函数**之间的折中，由参数$\lambda$控制。
+
+更小的权重意味着网络的行为不会因为一个输入的改变而变化太大，即学习局部噪声的影响更加困难，即抵抗噪声能力强。
+
+#### L1／L2
+
+$\begin{cases}L1：\\L2：C=C_0+\frac{\lambda}{2n}\sum_ww^2\end{cases}$
+
+$C_0$：原始的代价函数
+
+$\lambda（\lambda>0）$：规范化参数
+
+#### L2规范化／权重衰减
+
+
+
+#### 梯度下降-L2正则化
+
+L2正则化后，梯度下降的权重学习规则变成：$w=(1-\frac{\eta\lambda}{n})w-\eta\frac{\partial C_0}{\partial w}$
+
+L2正则化后，梯度下降的偏置学习规则仍是：$b=b-\eta\frac{\partial C_0}{\partial b}$
 
 
 
