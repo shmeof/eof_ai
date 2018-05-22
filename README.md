@@ -470,7 +470,19 @@ $\begin{cases}梯度下降-一阶收敛：用平面来逼近局部\\牛顿法-�
 
 ### 代价函数
 
-$\begin{cases}二次代价函数\\交叉熵代价函数\end{cases}$
+$\begin{cases}二次代价函数\\交叉熵代价函数\\对数似然代价函数\end{cases}$
+
+#### 代价函数-二次代价函数
+
+
+
+#### 代价函数-交叉熵代价函数
+
+
+
+#### 代价函数-对数似然代价函数
+
+$C=-ln(a_y^L)$
 
 ### 梯度下降（GD／SGD）
 
@@ -510,7 +522,13 @@ $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{a
 
 $\begin{cases}逻辑函数：g(z)= \frac 1 {1+e^{-z}} \\ 似然函数：\begin{aligned}L(\theta) &= p(\vec{y}| X; \theta)\\&= \prod^m_{i=1}  p(y^{(i)}| x^{(i)}; \theta)\\&= \prod^m_{i=1} (h_\theta (x^{(i)}))^{y^{(i)}}(1-h_\theta (x^{(i)}))^{1-y^{(i)}} \\\end{aligned} \\ 牛顿-拉普森法：\theta := \theta - H^{-1}\nabla_\theta l(\theta)，H_{ij}= \frac {\partial^2 l(\theta)}{\partial \theta_i \partial \theta_j}\end{cases}$$\Rightarrow$求得最大$l(\theta)$及其对应的$\theta$(Fisher评分）
 
-#### 正则化／规范化
+### 算法-Softmax（柔性最大值）
+
+神经网络特殊的输出层L：$a_j^L=\frac{e^{z_j^L}}{\sum_ke^{z_k^L}}$
+
+其中：$z_k^L=\sum_kw_{jk}^La_k^{L-1}+b_j^L$
+
+### 正则化／规范化
 
 $\begin{cases}L1：\\L2：\end{cases}$
 
@@ -694,8 +712,6 @@ $q_k$：非真实分布
 
 $KL(f(x) || g(x)) = \sum_{x\in X}f(x)log_2\frac{f(x)}{g(x)}$
 
-#### 代价函数-交叉熵代价函数
-
 
 
 ### 感知机
@@ -778,13 +794,23 @@ $a_j^l=\sigma(z_j^l)\rightarrow a^l=\sigma(z^l)：$
 
 #### 反向传播的四个基本方程
 
-$\begin{cases}输出误差：\delta^L=\nabla_aC\bigodot\sigma'(z^L)\\反向传播：\delta^l=((w^{l+1})^T\delta^{l+1})\bigodot\sigma'(z^l)\\偏置梯度：\frac{\partial C}{\partial b_j^{l}}=\delta_j^{l}\\权重梯度：\frac{\partial C}{w_jk^{l}}=a_k^{l-1}\delta_j^l\end{cases}$
+$\begin{cases}输出误差：\delta^L=\nabla_aC\bigodot\sigma'(z^L)\\反向传播：\delta^l=((w^{l+1})^T\delta^{l+1})\bigodot\sigma'(z^l)\\偏置梯度：\frac{\partial C}{\partial b_j^{l}}=\delta_j^{l}\\权重梯度：\frac{\partial C}{\partial w_{jk}^{l}}=a_k^{l-1}\delta_j^l\end{cases}$
 
 参考书籍（第41页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
 #### 反向传播算法步骤
 
 $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec x，针对每个\vec x进行以下计算\\2、前向传播：对于l=2,3,…,L，计算z^{x,l}=w^la^{x,l-1}+b，a^{x,l}=\sigma(z^{x,l})\\3、输出误差：\delta^{x,L}=\nabla_aC\bigodot\sigma'(z^{x,L})\\4、反向传播：对于l=L-1,L-2,…,2，计算\delta^{x,l}=((w^{l+1})^T\delta^{x,l+1})\bigodot\sigma'(z^{x,l})\\5、梯度下降：对于l=L-1,L-2,...2，更新w^l=w^l-\frac{\eta}{m}\sum_x\delta^{x,l}(a^{x,l-1})^T，b^l=b^l-\frac{\eta}{m}\sum_x\delta^{x,l}\end{cases}$
+
+
+
+### 策略-提前停止
+
+
+
+
+
+
 
 ### CNN-卷积神经网络
 
