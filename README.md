@@ -446,6 +446,10 @@
 >
 > 独立同分布
 
+#### 自然对数底数e
+
+ [数学里的 e 为什么叫做自然底数？是不是自然界里什么东西恰好是 e？ - 知乎](https://www.zhihu.com/question/20296247)
+
 
 
 ## 机器学习基础
@@ -454,7 +458,9 @@
 
 [Kivy-CN/Stanford-CS-229-CN: A Chinese Translation of Stanford CS229 notes 斯坦福机器学习CS229课程讲义的中文翻译](https://github.com/Kivy-CN/Stanford-CS-229-CN)
 
-**从零开始深度学习书籍推荐：**[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
+**从零开始深度学习书籍《神经网络和深度学习》推荐：**[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
+
+**在线版《神经网络和深度学习》**：[第一章: 利用神经网络识别手写数字 | tensorfly](http://www.tensorfly.cn/home/?p=80)
 
 
 
@@ -484,9 +490,13 @@ $\begin{cases}二次代价函数\\交叉熵代价函数\\对数似然代价函�
 
 $C=-ln(a_y^L)$
 
-### 梯度下降（GD／SGD）
+### 算法-梯度下降（GD／SGD）
 
 $梯度下降\begin{cases}批量梯度下降\\增量梯度下降（IGD）／随机梯度下降（SGD）\end{cases}$
+
+### 算法-Adam
+
+
 
 ### 算法-线性回归
 
@@ -754,10 +764,6 @@ $\begin{cases} Leaky\ ReLU\\Parametric\ ReLU \\Randomized\ ReLU\\Noisy\ ReLU\end
 
 [线性整流函数_百度百科](https://wapbaike.baidu.com/item/%E7%BA%BF%E6%80%A7%E6%95%B4%E6%B5%81%E5%87%BD%E6%95%B0/20263760?fr=aladdin)
 
-### 拟合
-
-$\begin{cases}欠拟合\rightarrow增加特征量／完善模型\\过拟合\rightarrow减少特征量／正则化\end{cases}$
-
 ### 神经网络
 
 $原始输入空间\rightarrow \begin{cases}矩阵线性变换\\激活函数非线形变换\end{cases}\rightarrow 线性可分／稀疏空间\rightarrow\begin{cases}分类\\回归\end{cases}$
@@ -798,6 +804,12 @@ $\begin{cases}输出误差：\delta^L=\nabla_aC\bigodot\sigma'(z^L)\\反向传�
 
 $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec x，针对每个\vec x进行以下计算\\2、前向传播：对于l=2,3,…,L，计算z^{x,l}=w^la^{x,l-1}+b，a^{x,l}=\sigma(z^{x,l})\\3、输出误差：\delta^{x,L}=\nabla_aC\bigodot\sigma'(z^{x,L})\\4、反向传播：对于l=L-1,L-2,…,2，计算\delta^{x,l}=((w^{l+1})^T\delta^{x,l+1})\bigodot\sigma'(z^{x,l})\\5、梯度下降：对于l=L-1,L-2,...2，更新w^l=w^l-\frac{\eta}{m}\sum_x\delta^{x,l}(a^{x,l-1})^T，b^l=b^l-\frac{\eta}{m}\sum_x\delta^{x,l}\end{cases}$
 
+### 拟合
+
+$\begin{cases}欠拟合\rightarrow增加特征量／完善模型\\过拟合\rightarrow减少特征量／正则化\end{cases}$
+
+$减轻过拟合\begin{cases}正则化／规范化-L1：\\正则化／规范化-L2：\\弃权-Dropout：确保模型对丢失某些个体连接的场景更加健壮。\\人为增加训练样本：\end{cases}$
+
 ### 正则化／规范化
 
 正则化／规范化：寻找**小的权重**和**最小化原始代价函数**之间的折中，由参数$\lambda$控制。
@@ -806,29 +818,57 @@ $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec
 
 #### L1／L2
 
-$\begin{cases}L1：\\L2：C=C_0+\frac{\lambda}{2n}\sum_ww^2\end{cases}$
+$\begin{cases}L1：C=C_0+\frac{\lambda}{2n}\sum_w|w|\\L2：C=C_0+\frac{\lambda}{2n}\sum_ww^2\end{cases}$
 
 $C_0$：原始的代价函数
 
 $\lambda（\lambda>0）$：规范化参数
 
-#### L2规范化／权重衰减
+#### 梯度下降-L1
+
+L2之后，梯度下降的权重学习规则变成：$w=w-\frac{\eta\lambda}{n}sgn(w)-\eta\frac{\partial C_0}{\partial w}$
+
+L2之后，梯度下降的偏置学习规则变成：$b=b-\eta\frac{\partial C_0}{\partial b}$
+
+$sgn(w)：w的正负符号$
+
+$sgn(0)=0$
+
+#### 梯度下降-L2
+
+L2之后，梯度下降的权重学习规则变成：$w=(1-\frac{\eta\lambda}{n})w-\eta\frac{\partial C_0}{\partial w}$
+
+L2之后，梯度下降的偏置学习规则仍是：$b=b-\eta\frac{\partial C_0}{\partial b}$
+
+#### L1 vs L2
+
+$\begin{cases}L1\begin{cases}|w|较大时：不敏感\\|w|较小时：敏感\end{cases}\\L2\begin{cases}|w|较大时：敏感\\|w|较小时：不敏感\end{cases}\end{cases}$
+
+L1规范化倾向于聚集网络的权重在相对少量的高重要度连接上，而其他权重就会被驱使向0接近。
+
+### Dropout
 
 
 
-#### 梯度下降-L2正则化
-
-L2正则化后，梯度下降的权重学习规则变成：$w=(1-\frac{\eta\lambda}{n})w-\eta\frac{\partial C_0}{\partial w}$
-
-L2正则化后，梯度下降的偏置学习规则仍是：$b=b-\eta\frac{\partial C_0}{\partial b}$
+### 权重初始化
 
 
 
-### 策略-提前停止
+### 超参数调整
 
 
 
+### 策略-提前停止（Early Stopping）
 
+
+
+### 算法-Hessian技术／Hessian优化
+
+？
+
+### 算法-基于momentum的梯度下降
+
+？
 
 
 
@@ -836,11 +876,7 @@ L2正则化后，梯度下降的偏置学习规则仍是：$b=b-\eta\frac{\parti
 
 #### 卷积层（Conv Layers）
 
-##### 感受野
-
-
-
-##### 特征映射
+##### 感受野 -> 特征映射（Feature Map）
 
 
 
@@ -855,6 +891,12 @@ L2正则化后，梯度下降的偏置学习规则仍是：$b=b-\eta\frac{\parti
 #### 混合层／池化层（Pooling Layers）
 
 $\begin{cases}最大值混合（max-pooling）：对领域特征点取最大值\\平均池化（mean-pooling）：对领域特征点求平均\\L2混合（L2-pooling）：对领域特征点取平方和之后算平方根\end{cases}$
+
+##### max-pooling
+
+##### mean-pooling
+
+##### L2-pooling
 
 
 
@@ -1007,13 +1049,19 @@ logistic回归
 
 
 
-## Python-MNIST
+## Python
+
+#### MNIST by Python
 
 **从零开始深度学习书籍推荐：**[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
+#### API
 
+np.linalg.inv()：矩阵求逆
 
-## PyTorch
+np.linalg.det()：矩阵求行列式
+
+np.linalg.norm()：
 
 
 
@@ -1029,25 +1077,44 @@ logistic回归
 -   Shape：
 
 
-### 常用方法
+### API
 
 * tf.Variable() : 变量
+
 * tf.constant() : 常量
+
 * tf.placeholder(） : 占位符
+
 * tf.add() : 加
+
 * tf.log() :
+
 * tf.mul() :
+
 * tf.matmul() : 矩阵乘法
+
 * tf.reduce_sum() : 计算元素和
+
 * tf.argmax() : 获取向量最大值的索引
+
 * tf.cast() ： 映射到指定类型
+
 * tf.equal() :
+
 * tf.reduce_mean() : [张量不同数轴的平均值计算](https://www.cnblogs.com/yuzhuwei/p/6986171.html)
+
 * tf.truncated_normal(shape, mean, stddev) ：产生满足正太分布的随机数（shape-张量维度，mean-均值，stddev-标准差），产生的随机数与均值的差距不会超过两倍的标准差。
-* tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=None, name=None)：卷积函数 [TF-卷积函数 tf.nn.conv2d 介绍](https://www.cnblogs.com/qggg/p/6832342.html)
+
+  [tf.truncated_normal的用法 - CSDN博客](https://blog.csdn.net/uestc_c2_403/article/details/72235565)
+
+* tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=None, name=None)：卷积函数 [【TensorFlow】tf.nn.conv2d是怎样实现卷积的？ - CSDN博客](https://blog.csdn.net/mao_xiao_feng/article/details/53444333)
+
 * tf.nn.softmax() : softmax模型
+
 * sess = tf.Session() : 启动会话
+
 * sess.run() : 执行图
+
 * sess.close() : 关闭会话
 
 
@@ -1060,6 +1127,14 @@ logistic回归
 
 
 ## Theano
+
+
+
+
+
+## PyTorch
+
+
 
 
 

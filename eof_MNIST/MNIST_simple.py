@@ -27,6 +27,10 @@ init = tf.initialize_all_variables()
 sess = tf.Session()
 sess.run(init)
 
+print "==="
+b = tf.Print(b, [b], message="This is a: ")
+
+
 for i in range(10):
     # 加载100个训练样本，然后执行一次train_step，并通过feed_dict将x 和 y_张量占位符用训练训练数据替代
     batch_xs, batch_ys = mnist.train.next_batch(100)
