@@ -612,6 +612,12 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
+### 算法-GBDT
+
+
+
+
+
 ### 最优边界分类器
 
 #### 线性可分
@@ -743,6 +749,10 @@ $KL(f(x) || g(x)) = \sum_{x\in X}f(x)log_2\frac{f(x)}{g(x)}$
 神经网络可以计算任何函数的可视化证明，参考书籍（第137页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
 
+
+### 激活函数
+
+![img](https://img-blog.csdn.net/20161031024815093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 ### 激活函数-sigmoid（S型神经元）
 
@@ -1069,12 +1079,24 @@ np.linalg.norm()：
 
 ### 概念
 
--   Graph：图，使用图来表示计算任务。
--   Session：上下文，图在此上下文中启动执行。
--   Tensor：张量，表示数据。
--   Variable：变量，维护状态。
--   Feed/Fetch：为任何操作（Operation，节点）写数据／读数据
--   Shape：
+#### Graph：图，使用图来表示计算任务。
+
+#### Session：上下文，图在此上下文中启动执行。
+
+#### Tensor：张量，表示数据。
+
+#### Variable：变量，维护状态。
+
+#### Feed/Fetch：为任何操作（Operation，节点）写数据／读数据
+
+#### Shape：
+
+
+
+#### 检查点文件
+
+#### 事件文件
+
 
 
 ### API
@@ -1086,6 +1108,8 @@ np.linalg.norm()：
 * tf.placeholder(） : 占位符
 
 * tf.add() : 加
+
+* tf.assign(): 赋值
 
 * tf.log() :
 
@@ -1116,6 +1140,26 @@ np.linalg.norm()：
 * sess.run() : 执行图
 
 * sess.close() : 关闭会话
+
+
+
+
+### TensorBoard
+
+[详解 TensorBoard－如何调参 - 简书](https://www.jianshu.com/p/d059ffea9ec0)
+
+
+
+#### tensorboard --logdir
+
+tensorboard --logdir=/tmp/mnist
+
+注意："="左右边不可以有空格
+
+或
+
+ensorboard —logdir /tmp/mnist
+
 
 
 ### Tensorflow-MNIST
