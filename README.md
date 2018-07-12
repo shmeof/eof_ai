@@ -612,13 +612,21 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
-### 算法-GBDT
+### 决策树
+
+#### 回归树
 
 
 
+#### 分类树
 
 
-### 最优边界分类器
+
+### 算法-GBDT（梯度提升决策树）
+
+[GBDT详解 - 白开水加糖 - 博客园](https://www.cnblogs.com/peizhe123/p/5086128.html)
+
+
 
 #### 线性可分
 
@@ -638,7 +646,7 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
-#### 算法-SVM（Support Vector Machine、支持向量机）
+### 算法-SVM（Support Vector Machine、支持向量机）
 
 [[推荐]SVM入门（一）至（三）Refresh - Jasper's Java Jacal - BlogJava](http://www.blogjava.net/zhenandaci/archive/2016/02/29/254519.html)
 
@@ -676,10 +684,6 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
-### 决策树
-
-
-
 ### xgboost
 
 
@@ -702,7 +706,7 @@ $香农信息量 = log_2\frac{1}{p}$
 
 $信息熵 = \sum^n_{k=1}p_klog_2\frac{1}{p_k}$
 
-$p_k$：真实分布
+$p_k​$：真实分布
 
 信息熵：信息熵是消除系统的不确定性的最小代价。
 
@@ -1158,7 +1162,7 @@ tensorboard --logdir=/tmp/mnist
 
 或
 
-ensorboard —logdir /tmp/mnist
+tensorboard —logdir /tmp/mnist
 
 
 

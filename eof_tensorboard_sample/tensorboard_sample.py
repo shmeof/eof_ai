@@ -32,6 +32,8 @@ def fc_layer(input, size_in, size_out, name="fc"):
         return act
 
 def mnist_fun(hparam_str, mnist_data, learning_rate, use_two_fc, use_two_conv, writer):
+    print("=== " + hparam_str + " ===")
+    # tf.reset_default_graph()
     x = tf.placeholder(tf.float32, shape=[None, 784], name="x")
     y = tf.placeholder(tf.float32, shape=[None, 10], name="labels")
     x_image = tf.reshape(x, [-1, 28, 28, 1])
@@ -71,6 +73,8 @@ def mnist_fun(hparam_str, mnist_data, learning_rate, use_two_fc, use_two_conv, w
     tf.summary.scalar('accuracy', accuracy)
     tf.summary.image('input', x_image, 3)
     merged_summary = tf.summary.merge_all()
+    # https://blog.csdn.net/u012436149/article/details/53894364
+    # merged_summary = tf.summary.merge(tf.get_collection(tf.GraphKeys.SUMMARIES))
     # writer = tf.summary.FileWriter("./tmp/mnist_demo/3")
 
     writer.add_graph(sess.graph)
