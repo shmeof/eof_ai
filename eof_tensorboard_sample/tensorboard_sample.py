@@ -106,13 +106,18 @@ def make_hparam_str(learning_rate, use_two_fc, use_two_conv):
         hp += ",fc-1"
     return hp
 
-# 对比
-for learning_rate in [1E-3, 1E-4, 1E-5]:
-    # fc层
-    for use_two_fc in [True, False]:
-        # conv层
-        for use_two_conv in [True, False]:
-            hparam_str = make_hparam_str(learning_rate, use_two_fc, use_two_conv)
-            writer = tf.summary.FileWriter("./tmp/mnist_tutorial/" + hparam_str)
-            mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
-            mnist_fun(hparam_str, mnist, learning_rate, use_two_fc, use_two_conv, writer)
+
+writer = tf.summary.FileWriter("./tmp/mnist_demo/4")
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+mnist_fun("./tmp/mnist_demo/4", mnist, 1E-3, True, True, writer)
+
+# # 对比
+# for learning_rate in [1E-3, 1E-4, 1E-5]:
+#     # fc层
+#     for use_two_fc in [True, False]:
+#         # conv层
+#         for use_two_conv in [True, False]:
+#             hparam_str = make_hparam_str(learning_rate, use_two_fc, use_two_conv)
+#             writer = tf.summary.FileWriter("./tmp/mnist_tutorial/" + hparam_str)
+#             mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+#             mnist_fun(hparam_str, mnist, learning_rate, use_two_fc, use_two_conv, writer)
