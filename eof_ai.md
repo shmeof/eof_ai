@@ -494,6 +494,8 @@ $C=-ln(a_y^L)$
 
 $梯度下降\begin{cases}批量梯度下降\\增量梯度下降（IGD）／随机梯度下降（SGD）\end{cases}$
 
+[GBDT原理详解 - ScorpioLu - 博客园](https://www.cnblogs.com/ScorpioLu/p/8296994.html)
+
 ### 算法-Adam
 
 
@@ -766,7 +768,7 @@ sigmoid：$g(z)= \frac 1 {1+e^{-z}}$
 
 tanch：$tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$
 
-由于$\sigma(z)=\frac{1+tanh(z/2)}{2}$，所以tanch是sigmoid函数按比例变化的版本。
+由于\sigma(z)=\frac{1+tanh(z/2)}{2}，所以tanch是sigmoid函数按比例变化的版本。
 
 ### 激活函数-ReLU（Rectified linear unit）（修正线性神经元、修正线性单元）
 
@@ -780,7 +782,7 @@ $\begin{cases} Leaky\ ReLU\\Parametric\ ReLU \\Randomized\ ReLU\\Noisy\ ReLU\end
 
 ### 神经网络
 
-$原始输入空间\rightarrow \begin{cases}矩阵线性变换\\激活函数非线形变换\end{cases}\rightarrow 线性可分／稀疏空间\rightarrow\begin{cases}分类\\回归\end{cases}$
+$$原始输入空间\rightarrow \begin{cases}矩阵线性变换\\激活函数非线形变换\end{cases}\rightarrow 线性可分／稀疏空间\rightarrow\begin{cases}分类\\回归\end{cases}$$
 
 $\begin{cases}增加节点数\rightarrow增加维度\rightarrow增加线性转换能力\\增加层数\rightarrow增加激活函数次数\rightarrow增加非线性转换次数\end{cases}$
 
@@ -789,6 +791,8 @@ $\begin{cases}增加节点数\rightarrow增加维度\rightarrow增加线性转�
 #### 阶跃函数
 
 [【神经网络和深度学习】笔记 - 第四章 神经网络可以实现任意函数的直观解释 - 野路子程序员 - 博客园](https://www.cnblogs.com/yeluzi/p/7491619.html)
+
+
 
 ### 神经网络可以计算任何函数的可视化证明
 
@@ -834,13 +838,13 @@ $减轻过拟合\begin{cases}正则化／规范化-L1：\\正则化／规范化-
 
 $\begin{cases}L1：C=C_0+\frac{\lambda}{2n}\sum_w|w|\\L2：C=C_0+\frac{\lambda}{2n}\sum_ww^2\end{cases}$
 
-$C_0$：原始的代价函数
+C_0：原始的代价函数
 
-$\lambda（\lambda>0）$：规范化参数
+（）\lambda（\lambda>0）：规范化参数
 
 #### 梯度下降-L1
 
-L2之后，梯度下降的权重学习规则变成：$w=w-\frac{\eta\lambda}{n}sgn(w)-\eta\frac{\partial C_0}{\partial w}$
+L2之后，梯度下降的权重学习规则变成：w=w-\frac{\eta\lambda}{n}sgn(w)-\eta\frac{\partial C_0}{\partial w}
 
 L2之后，梯度下降的偏置学习规则变成：$b=b-\eta\frac{\partial C_0}{\partial b}$
 
@@ -850,7 +854,7 @@ $sgn(0)=0$
 
 #### 梯度下降-L2
 
-L2之后，梯度下降的权重学习规则变成：$w=(1-\frac{\eta\lambda}{n})w-\eta\frac{\partial C_0}{\partial w}$
+L2之后，梯度下降的权重学习规则变成：w=(1-\frac{\eta\lambda}{n})w-\eta\frac{\partial C_0}{\partial w}
 
 L2之后，梯度下降的偏置学习规则仍是：$b=b-\eta\frac{\partial C_0}{\partial b}$
 
@@ -937,6 +941,12 @@ RNN在处理时序数据和过程上效果特别不错。如语音识别、自�
 
 
 ### Conway法则
+
+
+
+### 泰勒展开式
+
+[(2 条消息)怎样更好地理解并记忆泰勒展开式？ - 知乎](https://www.zhihu.com/question/25627482/answer/313088784)
 
 
 
