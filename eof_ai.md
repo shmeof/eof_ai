@@ -140,9 +140,9 @@
 
 #### 基变换
 
-> $\vec x' = A^{-1} M A  \vec x$
+> \vec x' = A^{-1} M A  \vec x
 >
-> 含义：将新空间的$\vec x$变换（$A$）到原空间，再在原空间执行线性变换M，再变换（$A^{-1}$）到新空间。
+> 含义：将新空间的\vec x变换（A）到原空间，再在原空间执行线性变换M，再变换（A^{-1}）到新空间。
 >
 > $\vec x$：在新空间的向量
 >
@@ -690,11 +690,35 @@ $\begin{cases}多元正态分布\\\begin{cases}\begin{aligned}y & \sim Bernoulli
 
 
 
-### 准确率／召回率
+### 准确率／精确率（查准率）／召回率（查全率）／ROC／AUC／PRC／F1
 
-**准确率**：针对测试结果（分母），样本中的正例有多少被预测正确。
+准确率（accuracy）：(TP + TN) / (ALL)。正确分类的样本/总样本。依赖于判决阈值。
 
-**召回率**：针对样本（分母），预测为正的样本中有多少是真正的正样本。
+精确率（查准率）（precision）：TP / (TP + FP)。在预测为1的样本中实际为1的概率。依赖于判决阈值。
+
+召回率（查全率）（recall）：TP / (TP + FN)。在实际为1的样本中你预测为1的概率。依赖于判决阈值。
+
+ROC曲线：ROC曲线横坐标为FPR（假阳性率，false positive rate，**FP/(FP+TN)**），纵坐标为TPR（真阳性率，true positive rate，**TP/(TP+FN)**）。用于评估二分类器优劣。ROC曲线越接近左上角，该分类器的性能越好。
+
+AUC面积：只能用于二分类模型的评价。AUC从Mann–Whitney U statistic的角度来解释：随机从标签为1和标签为0的样本集中分别随机选择两个样本，同时分类器会输出两样本为1的概率，那么我们认为分类器对**“标签1样本的预测概率>对标签0样本的预测概率 ”的概率**等价于AUC。因而AUC反应的是分类器对样本的排序能力，这样也可以理解AUC对不平衡样本不敏感的原因了。
+
+PRC：
+
+F1：依赖于判决阈值。
+
+
+
+[auc指标含义的理解 - CSDN博客](https://blog.csdn.net/dinosoft/article/details/43114935)
+
+[(3 封私信 / 21 条消息)如何理解机器学习和统计中的AUC？ - 知乎](https://www.zhihu.com/question/39840928/answer/83576302?utm_medium=social&utm_source=wechat_session)
+
+[全面梳理：准确率,精确率,召回率,查准率,查全率,假阳性,真阳性,PRC,ROC,AUC,F1](https://zhuanlan.zhihu.com/p/34079183?utm_medium=social&utm_source=wechat_session)
+
+[(3 条消息) 精确率、召回率、F1 值、ROC、AUC 各自的优缺点是什么？ - 知乎](https://www.zhihu.com/question/30643044/answer/554917862)
+
+[(6 条消息) 精确率、召回率、F1 值、ROC、AUC 各自的优缺点是什么？ - 知乎](https://www.zhihu.com/question/30643044/answer/562062736)
+
+
 
 ### 熵
 
@@ -814,11 +838,28 @@ $a_j^l=\sigma(z_j^l)\rightarrow a^l=\sigma(z^l)：$
 
 #### 反向传播的四个基本方程
 
+$$
+\begin{cases}输出误差：\delta^L=\nabla_aC\bigodot\sigma'(z^L)\
+\\反向传播：\delta^l=((w^{l+1})^T\delta^{l+1})\bigodot\sigma'(z^l)
+\\偏置梯度：\frac{\partial C}{\partial b_j^{l}}=\delta_j^{l}
+\\权重梯度：\frac{\partial C}{\partial w_{jk}^{l}}=a_k^{l-1}\delta_j^l\end{cases}
+$$
+
 $\begin{cases}输出误差：\delta^L=\nabla_aC\bigodot\sigma'(z^L)\\反向传播：\delta^l=((w^{l+1})^T\delta^{l+1})\bigodot\sigma'(z^l)\\偏置梯度：\frac{\partial C}{\partial b_j^{l}}=\delta_j^{l}\\权重梯度：\frac{\partial C}{\partial w_{jk}^{l}}=a_k^{l-1}\delta_j^l\end{cases}$
 
 参考书籍（第41页）[神经⽹络与深度学习 (1).pdf_免费高速下载|百度网盘-分享无限制](https://pan.baidu.com/s/1mi8YVri)，密码：e7do
 
 #### 反向传播算法步骤
+
+$$
+\begin{align}
+1、拆训练集：将训练集分为多批\vec x，每批m个\vec x，针对每个\vec x进行以下计算
+\\2、前向传播：对于l=2,3,…,L，计算z^{x,l}=w^la^{x,l-1}+b，a^{x,l}=\sigma(z^{x,l})
+\\3、输出误差：\delta^{x,L}=\nabla_aC\bigodot\sigma'(z^{x,L})
+\\4、反向传播：对于l=L-1,L-2,…,2，计算\delta^{x,l}=((w^{l+1})^T\delta^{x,l+1})\bigodot\sigma'(z^{x,l})
+\\5、梯度下降：对于l=L-1,L-2,...2，更新w^l=w^l-\frac{\eta}{m}\sum_x\delta^{x,l}(a^{x,l-1})^T，b^l=b^l-\frac{\eta}{m}\sum_x\delta^{x,l}
+\end{align}
+$$
 
 $\begin{cases}1、拆训练集：将训练集分为多批\vec x，每批m个\vec x，针对每个\vec x进行以下计算\\2、前向传播：对于l=2,3,…,L，计算z^{x,l}=w^la^{x,l-1}+b，a^{x,l}=\sigma(z^{x,l})\\3、输出误差：\delta^{x,L}=\nabla_aC\bigodot\sigma'(z^{x,L})\\4、反向传播：对于l=L-1,L-2,…,2，计算\delta^{x,l}=((w^{l+1})^T\delta^{x,l+1})\bigodot\sigma'(z^{x,l})\\5、梯度下降：对于l=L-1,L-2,...2，更新w^l=w^l-\frac{\eta}{m}\sum_x\delta^{x,l}(a^{x,l-1})^T，b^l=b^l-\frac{\eta}{m}\sum_x\delta^{x,l}\end{cases}$
 
@@ -983,12 +1024,13 @@ RNN在处理时序数据和过程上效果特别不错。如语音识别、自�
   3. 无监督学习：无标准答案（从数据中挖掘有趣的结构）
 
   			聚类问题（聚类算法）
-  			如“鸡尾酒会问题”-独立组件分析
+  	​		如“鸡尾酒会问题”-独立组件分析
 
   4. 强化学习：
 
 			回报函数
 	
+
 支持向量机-SVM
 
 
@@ -1005,23 +1047,23 @@ RNN在处理时序数据和过程上效果特别不错。如语音识别、自�
 
 
 线性回归
-	m：训练集大小
-	x：输入
-	y：输出
-	(x, y)：一个样本
+​	m：训练集大小
+​	x：输入
+​	y：输出
+​	(x, y)：一个样本
 
 梯度下降算法
-	局部最优问题
-	批梯度下降算法
-	随机梯度下降算法／增量梯度下降算法
-	梯度上升算法
-	
-	矩阵的迹：n×n矩阵A的主对角线（从左上方至右下方的对角线）上各个元素的总和。
-	矩阵转置：
+​	局部最优问题
+​	批梯度下降算法
+​	随机梯度下降算法／增量梯度下降算法
+​	梯度上升算法
+​	
+​	矩阵的迹：n×n矩阵A的主对角线（从左上方至右下方的对角线）上各个元素的总和。
+​	矩阵转置：
 
 正规方程组
-	正规方程组：（使得最小二乘拟合问题可以不再用梯度下降算法进行迭代计算）
-	最小二乘拟合问题：
+​	正规方程组：（使得最小二乘拟合问题可以不再用梯度下降算法进行迭代计算）
+​	最小二乘拟合问题：
 
 ---
 
@@ -1039,7 +1081,7 @@ RNN在处理时序数据和过程上效果特别不错。如语音识别、自�
 局部加权回归（Loess）（一种非参数学习算法）
 
 logistic回归
-	logistic函数（sigmoid函数）
+​	logistic函数（sigmoid函数）
 
 感知器算法
 
@@ -1232,6 +1274,12 @@ tensorboard —logdir ./tmp/mnist
 ## PyTorch
 
 
+
+### Caffe
+
+
+
+### MXNet
 
 
 
